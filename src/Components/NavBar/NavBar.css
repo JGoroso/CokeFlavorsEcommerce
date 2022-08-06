@@ -3,3 +3,11 @@
   color: #f40000;
   font-size: 1.6em;
 }
+
+.navbar {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}

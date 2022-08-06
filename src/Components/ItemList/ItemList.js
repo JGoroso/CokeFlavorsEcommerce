@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { productList } from "../../Data/products";
-import { Item } from "./Item";
+import { getProductbyCategory, productList } from "./../../Data/products";
+import { Item } from "../Item/Item";
 import "./ItemList.css";
+import { useParams } from "react-router-dom";
 
 export const ItemList = () => {
   const [products, setProducts] = useState([]);
 
+  const { categoryId } = useParams();
+
   const getProducts = new Promise((resolve) => {
     setTimeout(() => {
       resolve(productList);
-    }, 2000);
+    }, 500);
   });
 
   const getProductsDB = async () => {
@@ -20,10 +23,15 @@ export const ItemList = () => {
       console.error();
     }
   };
-
   useEffect(() => {
-    getProductsDB();
-  }, []);
+    if (!categoryId) {
+      getProductsDB();
+    } else {
+      getProductbyCategory(categoryId).then((products) => {
+        setProducts(products);
+      });
+    }
+  }, [categoryId]);
 
   return (
     <div className="Itemlist">
@@ -32,6 +40,7 @@ export const ItemList = () => {
           return (
             <Item
               key={product.id}
+              id={product.id}
               name={product.name}
               price={product.price}
               thumbnail={product.thumbnail}

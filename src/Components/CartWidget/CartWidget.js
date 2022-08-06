@@ -9,7 +9,12 @@ export const CartWidget = () => {
       <Icon w={8} h={8} marginLeft={4} marginTop={2} color="red.500">
         <FaShoppingCart />
       </Icon>
-      <Text display={"inline"} fontSize="sl" fontWeight="semibold">
+      <Text
+        display={"inline"}
+        color="#fafafa"
+        fontSize="sl"
+        fontWeight="semibold"
+      >
         4
       </Text>
     </button>

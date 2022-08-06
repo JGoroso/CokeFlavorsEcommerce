@@ -1,0 +1,8 @@
+.hero {
+  height: 100vh;
+  background-image: url("https://venturebeat.com/wp-content/uploads/2022/04/image001-1.jpg?fit=1600%2C900&strip=all");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+}
