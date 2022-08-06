@@ -6,6 +6,7 @@ export const productList = [
     thumbnail:
       "https://www.seekpng.com/png/full/116-1166826_diet-coke-ginger-lime-zesty-blood-orange-diet.png",
     stock: 4,
+    category: "sabores",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque malesuada sollicitudin tortor eu aliquam. Sed eleifend eleifend tellus, in ornare eros tempus at. Cras vehicula eleifend quam, id feugiat felis varius in. ",
   },
@@ -26,6 +27,7 @@ export const productList = [
     thumbnail:
       "http://cdn.shopify.com/s/files/1/0520/1543/1841/products/Chwrgwrerry12oz.png?v=1653581667",
     stock: 6,
+    category: "sabores",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque malesuada sollicitudin tortor eu aliquam.  ",
   },
@@ -35,6 +37,7 @@ export const productList = [
     price: 40,
     thumbnail: "https://www.allmart.ca/images/large/CO0355OV_LRG.png",
     stock: 6,
+    category: "sabores",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque malesuada sollicitudin tortor eu aliquam.  ",
   },
@@ -77,7 +80,7 @@ export const productList = [
     thumbnail:
       "https://www.coca-colacompany.com/content/dam/journey/au/en/brand-detail/coca-cola/Large_product_shot_Coca-Cola_Vanilla_No_Sugar_updated.png",
     stock: 6,
-    category: "regalos",
+    category: "sabores",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque malesuada sollicitudin tortor eu aliquam.  ",
   },

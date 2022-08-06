@@ -34,7 +34,7 @@ export const ItemList = () => {
   }, [categoryId]);
 
   return (
-    <div className="Itemlist">
+    <div className="Itemlist" id="AllProducts">
       {products.length ? (
         products.map((product) => {
           return (
