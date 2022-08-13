@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Button, useColorModeValue, Text } from "@chakra-ui/react";
+import { Button, useColorModeValue } from "@chakra-ui/react";
 
 import "./ItemCount.css";
 
@@ -22,15 +22,7 @@ export const ItemCount = ({ initial, stock, onAdd }) => {
             onClick={() => addProduct(-1)}
             disabled={qty === initial}
           />
-          <Text
-            color="gray.600"
-            fontWeight={800}
-            fontSize={"2xl"}
-            pl={2}
-            pr={2}
-          >
-            {qty}
-          </Text>
+          <h3>{qty}</h3>
           <Button
             bg="green.300"
             _active={{ bg: "green.300" }}
@@ -45,7 +37,7 @@ export const ItemCount = ({ initial, stock, onAdd }) => {
         rounded={"none"}
         mt={2}
         size={"lg"}
-        py={"7"}
+        p={"7"}
         onClick={() => onAdd(qty)}
         bg={useColorModeValue("red.500")}
         color={useColorModeValue("white", "gray.900")}

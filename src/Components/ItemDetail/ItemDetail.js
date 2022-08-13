@@ -1,46 +1,40 @@
-import React from "react";
-import { Flex, Box, chakra, Image } from "@chakra-ui/react";
+import React, { useState, useContext } from "react";
+import { Flex, Box, chakra, Image, Button } from "@chakra-ui/react";
 import { ItemCount } from "../ItemCount/ItemCount";
+import { Link } from "react-router-dom";
+import "./ItemDetail.css";
+import { CartContext } from "../Context/CartContext";
 
-export const ItemDetail = ({ name, description, price, thumbnail, stock }) => {
+export const ItemDetail = ({
+  id,
+  name,
+  description,
+  price,
+  thumbnail,
+  stock,
+}) => {
+  const [quantity, setQuantity] = useState(0);
+  const { addItem } = useContext(CartContext);
+
   const onAdd = (value) => {
-    alert(`Agregaste ${value} coquitas 🥤`);
+    setQuantity(value);
+    const productToAdd = {
+      id,
+      name,
+      price,
+      value,
+    };
+
+    addItem(productToAdd);
   };
 
   return (
     <>
-      <Flex
-        _dark={{
-          bg: "#3e3e3e",
-        }}
-        p={60}
-        w="full"
-        alignItems="center"
-        justifyContent="center"
-      >
-        <Box
-          w="80%"
-          bg="white"
-          _dark={{
-            bg: "gray.800",
-          }}
-          mx={{
-            lg: 8,
-          }}
-          display={{
-            lg: "flex",
-          }}
-          maxW={{
-            lg: "5xl",
-          }}
-          shadow={{
-            lg: "lg",
-          }}
-          rounded={{
-            lg: "lg",
-          }}
-        >
+      <Flex p={60} w="full" alignItems="center" justifyContent="center">
+        <Box className="item_detail">
           <Box
+            display={"flex"}
+            justifyContent={"center"}
             w={{
               lg: "50%",
             }}
@@ -49,7 +43,6 @@ export const ItemDetail = ({ name, description, price, thumbnail, stock }) => {
               height={430}
               position="absolute"
               top={40}
-              ml={40}
               objectFit={"cover"}
               src={thumbnail}
             />
@@ -119,7 +112,20 @@ export const ItemDetail = ({ name, description, price, thumbnail, stock }) => {
             </chakra.p>
 
             <Box mt={8}>
-              <ItemCount initial={1} stock={stock} onAdd={onAdd} />
+              {quantity === 0 ? (
+                <ItemCount
+                  display="none"
+                  initial={1}
+                  stock={stock}
+                  onAdd={onAdd}
+                />
+              ) : (
+                <>
+                  <Link to="/cart">
+                    <Button>Terminar compra</Button>
+                  </Link>
+                </>
+              )}
             </Box>
           </Box>
         </Box>

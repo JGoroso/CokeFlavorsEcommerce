@@ -10,14 +10,9 @@ import {
   Image,
 } from "@chakra-ui/react";
 
-import { ItemCount } from "../ItemCount/ItemCount";
 import { Link } from "react-router-dom";
 
 export const Item = (props) => {
-  // const onAdd = (qty) => {
-  //   return alert(`Usted ha comprado ${qty} coquitas`);
-  // };
-  //
 
   return (
     <Center py={14}>
@@ -26,7 +21,8 @@ export const Item = (props) => {
         gap={10}
         p={6}
         maxW={"330px"}
-        w={"full"}
+        w={260}
+        h={420}
         bg={useColorModeValue("white", "gray.800")}
         boxShadow={"2xl"}
         rounded={"lg"}
@@ -44,7 +40,7 @@ export const Item = (props) => {
           _after={{
             transition: "all .3s ease",
             content: '""',
-            w: "250px",
+            w: "220px",
             h: "230px",
             pos: "absolute",
             top: 5,

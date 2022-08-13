@@ -19,7 +19,7 @@ export const ItemDetailContainer = () => {
 
   return (
     <>
-      <Box className="containerItemDetail">
+      <Box w={"100vw"}>
         <ItemDetail {...product} />
       </Box>
     </>

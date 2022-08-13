@@ -7,5 +7,17 @@
 }
 
 .Button {
-  width: 50%;
+  width: 60%;
+}
+
+h3 {
+  color: #232323;
+  font-weight: bold;
+  padding: 5px;
+}
+
+@media (max-width: 760px) {
+  .Button {
+    width: 100%;
+  }
 }

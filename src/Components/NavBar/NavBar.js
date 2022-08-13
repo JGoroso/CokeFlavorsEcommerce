@@ -7,6 +7,7 @@ import { CartWidget } from "../CartWidget/CartWidget";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
+
 export const NavBar = (props) => {
   return (
     <>
