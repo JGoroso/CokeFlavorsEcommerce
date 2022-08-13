@@ -4,7 +4,7 @@ ReactJs-ChakraUI
 
 ## Preview
 
-![gif](https://media1.tenor.com/images/3fcb56a19dc4d1f05648219ed3374468/tenor.gif?itemid=26404136) 
+![gif](https://github.com/JGoroso/CokeFlavorsEcommerce/blob/master/src/screen-recording.gif) 
 
 
 
