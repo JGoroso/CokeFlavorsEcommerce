@@ -17,6 +17,7 @@ export const productList = [
     thumbnail:
       "https://cdn.shopify.com/s/files/1/1820/8835/products/coke_large.png?v=1626460401",
     stock: 5,
+    category: "sabores",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque malesuada sollicitudin tortor eu aliquam.  ",
   },

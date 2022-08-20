@@ -1,10 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Button, useColorModeValue } from "@chakra-ui/react";
+import { Button, useColorModeValue, HStack, Input } from "@chakra-ui/react";
 
 import "./ItemCount.css";
 
-export const ItemCount = ({ initial = 1, stock = 0, onAdd }) => {
+export const ItemCount = ({ initial = 1, stock, onAdd }) => {
   const [qty, setQty] = useState(initial);
 
   useEffect(() => {
@@ -18,25 +18,30 @@ export const ItemCount = ({ initial = 1, stock = 0, onAdd }) => {
 
   return (
     <>
-      <div className="Counter">
-        <>
-          <Button
-            bg="red.400"
-            _active={{ bg: "pink.300" }}
-            children="-"
-            onClick={() => addProduct(-1)}
-            disabled={qty === initial}
-          />
-          <h3>{qty}</h3>
-          <Button
-            bg="green.300"
-            _active={{ bg: "green.300" }}
-            children="+"
-            onClick={() => addProduct(+1)}
-            disabled={qty === stock}
-          />
-        </>
-      </div>
+      <HStack display="flex" justifyContent={"center"}>
+        <Button
+          onClick={() => {
+            if (qty > 1) addProduct(-1);
+          }}
+        >
+          -
+        </Button>
+        <Input
+          textAlign={"center"}
+          value={qty}
+          ize="md"
+          maxW={24}
+          defaultValue={15}
+          min={10}
+        />
+        <Button
+          onClick={() => {
+            if (qty < stock) addProduct(+1);
+          }}
+        >
+          +
+        </Button>
+      </HStack>
       <Button
         className="Button"
         rounded={"none"}
