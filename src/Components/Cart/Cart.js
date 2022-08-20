@@ -48,7 +48,7 @@ export const Cart = () => {
               direction={{
                 base: "column",
               }}
-              w="full"
+              w="60%"
               shadow="lg"
             >
               <Flex
@@ -61,7 +61,7 @@ export const Cart = () => {
                   spacingY={3}
                   columns={{
                     base: 1,
-                    md: 5,
+                    md: 6,
                   }}
                   w={{
                     base: 120,
@@ -82,7 +82,15 @@ export const Cart = () => {
                   fontWeight="hairline"
                 >
                   <span></span>
-                  <span>PRODUCTO</span>
+                  <chakra.span
+                    textOverflow="ellipsis"
+                    overflow="hidden"
+                    whiteSpace="nowrap"
+                    textAlign={"left"}
+                  >
+                    <span>PRODUCTO</span>
+                  </chakra.span>
+                  <span>PRECIO C/U</span>
                   <span>CANTIDAD</span>
                   <span>SUBTOTAL</span>
                 </SimpleGrid>
@@ -93,21 +101,36 @@ export const Cart = () => {
                       spacingY={3}
                       columns={{
                         base: 1,
-                        md: 5,
+                        md: 6,
                       }}
                       w="full"
                       py={2}
                       px={10}
                       fontWeight="semibold"
                       color="gray.100"
+                      alignItems={"center"}
                     >
                       <Image
-                        boxSize="25px"
+                        maxW={"32px"}
+                        maxH={"32px"}
                         src={prod.thumbnail}
-                        alt="Dan Abramov"
+                        alt="cokita"
                       />
-
-                      <span>{prod.name}</span>
+                      <chakra.span
+                        textOverflow="ellipsis"
+                        overflow="hidden"
+                        whiteSpace="nowrap"
+                        textAlign={"left"}
+                      >
+                        <span>{prod.name}</span>
+                      </chakra.span>
+                      <chakra.span
+                        textOverflow="ellipsis"
+                        overflow="hidden"
+                        whiteSpace="nowrap"
+                      >
+                        <span>${prod.price}</span>
+                      </chakra.span>
                       <chakra.span
                         textOverflow="ellipsis"
                         overflow="hidden"
@@ -160,7 +183,7 @@ export const Cart = () => {
           </Flex>
 
           <chakra.h1 color="white" fontWeight="bold" fontSize="xl" pb={5}>
-            TOTAL: ${totaPrice()}
+            COMPRA TOTAL: ${totaPrice()}
           </chakra.h1>
           <ButtonGroup variant="solid" size="sm" spacing={3}>
             <Link to="/">

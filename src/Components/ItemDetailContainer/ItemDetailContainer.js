@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
-import { getProductbyId } from "../../Data/products";
 import { useParams } from "react-router-dom";
 import { Box } from "@chakra-ui/react";
+import { getDoc, doc } from "firebase/firestore";
+import { database } from "../../Services/Firebase/index";
 
 export const ItemDetailContainer = () => {
   const [product, setProduct] = useState();
   const { productId } = useParams();
   useEffect(() => {
-    getProductbyId(productId)
-      .then((product) => {
-        setProduct(product);
+    getDoc(doc(database, "products", productId))
+      .then((response) => {
+        const data = response.data();
+        const productObj = { id: response.id, ...data };
+        setProduct(productObj);
       })
       .catch((error) => {
         console.log(error);
       });
-  });
+  }, [productId]);
 
   return (
     <>

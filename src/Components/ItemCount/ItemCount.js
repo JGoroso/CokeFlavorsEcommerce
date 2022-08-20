@@ -13,6 +13,7 @@ export const ItemCount = ({ initial = 1, stock, onAdd }) => {
 
   const addProduct = (num) => {
     setQty(qty + num);
+    return qty;
   };
   console.log(qty);
 
@@ -26,14 +27,7 @@ export const ItemCount = ({ initial = 1, stock, onAdd }) => {
         >
           -
         </Button>
-        <Input
-          textAlign={"center"}
-          value={qty}
-          ize="md"
-          maxW={24}
-          defaultValue={15}
-          min={10}
-        />
+        <Input textAlign={"center"} value={qty} onChange={addProduct} size="md" maxW={24} min={10} />
         <Button
           onClick={() => {
             if (qty < stock) addProduct(+1);

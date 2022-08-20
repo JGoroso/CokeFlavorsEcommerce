@@ -1,36 +1,29 @@
 import React, { useEffect, useState } from "react";
-import { getProductbyCategory, productList } from "./../../Data/products";
 import { Item } from "../Item/Item";
 import "./ItemList.css";
 import { useParams } from "react-router-dom";
+import { getDocs, collection, query, where } from "firebase/firestore";
+import { database } from "../../Services/Firebase/index";
 
 export const ItemList = () => {
   const [products, setProducts] = useState([]);
 
   const { categoryId } = useParams();
 
-  const getProducts = new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(productList);
-    }, 500);
-  });
-
-  const getProductsDB = async () => {
-    try {
-      const get = await getProducts;
-      setProducts(get);
-    } catch (error) {
-      console.error();
-    }
-  };
   useEffect(() => {
-    if (!categoryId) {
-      getProductsDB();
-    } else {
-      getProductbyCategory(categoryId).then((products) => {
-        setProducts(products);
+    const filterCategory = !categoryId
+      ? collection(database, "products")
+      : query(
+          collection(database, "products"),
+          where("category", "==", categoryId)
+        );
+    getDocs(filterCategory).then((response) => {
+      const productsFromDocs = response.docs.map((prod) => {
+        const data = prod.data();
+        return { id: prod.id, ...data };
       });
-    }
+      setProducts(productsFromDocs);
+    });
   }, [categoryId]);
 
   return (
