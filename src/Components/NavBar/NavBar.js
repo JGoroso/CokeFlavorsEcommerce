@@ -6,9 +6,11 @@ import "./NavBar.css";
 import { CartWidget } from "../CartWidget/CartWidget";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-
+import { useContext } from "react";
+import { CartContext } from "../../Context/CartContext";
 
 export const NavBar = (props) => {
+  const { cart } = useContext(CartContext);
   return (
     <>
       <Box
@@ -31,7 +33,7 @@ export const NavBar = (props) => {
 
         <Box display="flex" alignItems="center" color="#fafafa">
           <HashLink to={"/"}>
-            <Button _hover={{ bg: "#ff6d6d" }} variant="ghost">
+            <Button _hover={{ bg: "#ff6d6d" }} variant="ghost" fontSize={"md"}>
               HOME
             </Button>
           </HashLink>
@@ -45,7 +47,7 @@ export const NavBar = (props) => {
               SABORES
             </Button>
           </Link>
-          <CartWidget />
+           <CartWidget /> 
         </Box>
       </Box>
     </>

@@ -9,10 +9,21 @@ export const CartContextProvider = ({ children }) => {
   const addItem = (productToAdd) => {
     if (!isInCart(productToAdd.id)) {
       setCart([...cart, productToAdd]);
+    } else {
+      const cartUpdated = cart.map((prod) => {
+        if (prod.id === productToAdd.id) {
+          const productUpdated = {
+            ...prod,
+            quantity: productToAdd.quantity,
+          };
+          return productUpdated;
+        } else {
+          return prod;
+        }
+      });
+
+      setCart(cartUpdated);
     }
-    //Falta else, quiero ponerlo cuando integre bien el mapeo de cuando SI
-    //existe un product, aun no consigo entenderlo pero para la proxima entrega
-    //va a estar, el resto de los metodos pedidos en el desafio estan! 
   };
 
   const isInCart = (id) => {
@@ -21,6 +32,7 @@ export const CartContextProvider = ({ children }) => {
 
   const removeItemFromCart = (id) => {
     const newCart = cart.filter((prod) => prod.id !== id);
+    console.log(id);
     setCart(newCart);
   };
 
@@ -28,24 +40,42 @@ export const CartContextProvider = ({ children }) => {
     let count = 0;
 
     cart.forEach((prod) => {
-      count += prod.value;
+      count += prod.quantity;
     });
 
     return count;
+  };
+
+  const totaPrice = () => {
+    let price = 0;
+
+    cart.forEach((prod) => {
+      price += prod.quantity * prod.price;
+    });
+
+    return price;
   };
 
   const clearCart = () => {
     setCart([]);
   };
 
+  const productQty = (id) => {
+    const product = cart.find((prod) => prod.id === id);
+    return product?.quantity;
+  };
+
   return (
     <CartContext.Provider
       value={{
+        cart,
         addItem,
         totalQuantity,
         isInCart,
         removeItemFromCart,
         clearCart,
+        productQty,
+        totaPrice,
       }}
     >
       {children}

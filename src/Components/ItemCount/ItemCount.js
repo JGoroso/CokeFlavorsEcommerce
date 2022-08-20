@@ -1,15 +1,20 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button, useColorModeValue } from "@chakra-ui/react";
 
 import "./ItemCount.css";
 
-export const ItemCount = ({ initial, stock, onAdd }) => {
+export const ItemCount = ({ initial = 1, stock = 0, onAdd }) => {
   const [qty, setQty] = useState(initial);
+
+  useEffect(() => {
+    setQty(initial);
+  }, [initial]);
 
   const addProduct = (num) => {
     setQty(qty + num);
   };
+  console.log(qty);
 
   return (
     <>

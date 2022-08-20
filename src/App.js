@@ -7,7 +7,8 @@ import { Route } from "react-router-dom";
 import { Error } from "./Components/Error404/Error404";
 import { NavBar } from "./Components/NavBar/NavBar";
 import { ItemListContainer } from "./Components/ItemListContainer/ItemListContainer";
-import { CartContextProvider } from "./Components/Context/CartContext";
+import { CartContextProvider } from "./Context/CartContext";
+import { Cart } from "./Components/Cart/Cart";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               path="/detail/:productId"
               element={<ItemDetailContainer />}
             />
+            <Route path="/cart" element={<Cart />} />
             <Route path="/*" element={<Error />} />
           </Routes>
         </BrowserRouter>

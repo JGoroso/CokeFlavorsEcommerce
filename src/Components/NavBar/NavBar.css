@@ -1,9 +1,3 @@
-.Title {
-  font-family: Unity, Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #f40000;
-  font-size: 1.6em;
-}
-
 .navbar {
   width: 100%;
   position: absolute;
@@ -12,3 +6,9 @@
   z-index: 2;
 }
 
+@media (max-width: 760px) {
+  .navbar img {
+    width: 60px;
+    height: 60px;
+  }
+}

@@ -6,3 +6,9 @@
   position: relative;
   z-index: 1;
 }
+
+@media (max-width: 760px) {
+  .hero {
+    background-position-x: 75%;
+  }
+}

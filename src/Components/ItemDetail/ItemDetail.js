@@ -3,7 +3,7 @@ import { Flex, Box, chakra, Image, Button } from "@chakra-ui/react";
 import { ItemCount } from "../ItemCount/ItemCount";
 import { Link } from "react-router-dom";
 import "./ItemDetail.css";
-import { CartContext } from "../Context/CartContext";
+import { CartContext } from "../../Context/CartContext";
 
 export const ItemDetail = ({
   id,
@@ -14,20 +14,22 @@ export const ItemDetail = ({
   stock,
 }) => {
   const [quantity, setQuantity] = useState(0);
-  const { addItem } = useContext(CartContext);
+  const { addItem, productQty } = useContext(CartContext);
 
-  const onAdd = (value) => {
-    setQuantity(value);
+  const onAdd = (quantity) => {
+    setQuantity(quantity);
     const productToAdd = {
       id,
       name,
       price,
-      value,
+      quantity,
+      thumbnail
     };
 
     addItem(productToAdd);
   };
-
+  const getProductQty = productQty(id);
+ console.log(getProductQty)
   return (
     <>
       <Flex p={60} w="full" alignItems="center" justifyContent="center">
@@ -115,7 +117,7 @@ export const ItemDetail = ({
               {quantity === 0 ? (
                 <ItemCount
                   display="none"
-                  initial={1}
+                  initial={getProductQty}
                   stock={stock}
                   onAdd={onAdd}
                 />
