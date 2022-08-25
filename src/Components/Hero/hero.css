@@ -1,14 +1,17 @@
 .hero {
   height: 100vh;
-  background-image: url("https://venturebeat.com/wp-content/uploads/2022/04/image001-1.jpg?fit=1600%2C900&strip=all");
+  width: 100vw;
+  background-image: url("http://cdn.miscellaneoushi.com/2560x1600/20121023/minimalistic%20cocacola%20coke%20backgrounds%20logos%202560x1600%20wallpaper_www.miscellaneoushi.com_48.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
-  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 960px) {
   .hero {
-    background-position-x: 75%;
+    background-position-x: 40%;
+    display: flex;
   }
 }

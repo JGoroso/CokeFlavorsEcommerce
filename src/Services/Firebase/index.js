@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCqmvxmNjbEHguY_iYZkrPNN7z2cf-qwvA",
-  authDomain: "cokeflavorsecommerce.firebaseapp.com",
-  projectId: "cokeflavorsecommerce",
-  storageBucket: "cokeflavorsecommerce.appspot.com",
-  messagingSenderId: "212057509493",
-  appId: "1:212057509493:web:733c1b026cd5ab7d67723c",
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
 };
 
 const app = initializeApp(firebaseConfig);

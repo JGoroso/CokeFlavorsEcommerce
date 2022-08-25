@@ -1,14 +1,4 @@
-.Counter {
-  max-width: 30%;
-  display: flex;
-  margin: 0 auto;
-  justify-content: center;
-  color: #fafafa;
-}
 
-.Button {
-  width: 60%;
-}
 
 h3 {
   color: #232323;

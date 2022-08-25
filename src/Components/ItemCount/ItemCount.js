@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Button, useColorModeValue, HStack, Input } from "@chakra-ui/react";
-
+import { FaCartPlus } from "react-icons/fa";
 import "./ItemCount.css";
 
 export const ItemCount = ({ initial = 1, stock, onAdd }) => {
@@ -15,11 +15,10 @@ export const ItemCount = ({ initial = 1, stock, onAdd }) => {
     setQty(qty + num);
     return qty;
   };
-  console.log(qty);
 
   return (
     <>
-      <HStack display="flex" justifyContent={"center"}>
+      <HStack display="flex">
         <Button
           onClick={() => {
             if (qty > 1) addProduct(-1);
@@ -27,7 +26,14 @@ export const ItemCount = ({ initial = 1, stock, onAdd }) => {
         >
           -
         </Button>
-        <Input textAlign={"center"} value={qty} onChange={addProduct} size="md" maxW={24} min={10} />
+        <Input
+          textAlign={"center"}
+          value={qty}
+          onChange={addProduct}
+          size="md"
+          maxW={24}
+          min={10}
+        />
         <Button
           onClick={() => {
             if (qty < stock) addProduct(+1);
@@ -35,24 +41,19 @@ export const ItemCount = ({ initial = 1, stock, onAdd }) => {
         >
           +
         </Button>
+        <Button
+          className="Button"
+          mt={2}
+          size={"lg"}
+          onClick={() => onAdd(qty)}
+          bg={useColorModeValue("red.500")}
+          color={useColorModeValue("white", "gray.900")}
+          textTransform={"uppercase"}
+        >
+          <FaCartPlus />
+          &nbsp; Agregar al carrito
+        </Button>
       </HStack>
-      <Button
-        className="Button"
-        rounded={"none"}
-        mt={2}
-        size={"lg"}
-        p={"7"}
-        onClick={() => onAdd(qty)}
-        bg={useColorModeValue("red.500")}
-        color={useColorModeValue("white", "gray.900")}
-        textTransform={"uppercase"}
-        _hover={{
-          transform: "translateY(2px)",
-          boxShadow: "lg",
-        }}
-      >
-        Agregar al carrito
-      </Button>
     </>
   );
 };

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { Box } from "@chakra-ui/react";
 import { getDoc, doc } from "firebase/firestore";
 import { database } from "../../Services/Firebase/index";
+import "./ItemDetailContainer.css";
 
 export const ItemDetailContainer = () => {
   const [product, setProduct] = useState();
@@ -22,7 +23,7 @@ export const ItemDetailContainer = () => {
 
   return (
     <>
-      <Box w={"100vw"}>
+      <Box w={"100vw"} className="itemDetailContainer">
         <ItemDetail {...product} />
       </Box>
     </>

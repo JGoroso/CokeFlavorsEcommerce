@@ -1,14 +1,20 @@
 import React from "react";
 import { ItemList } from "../ItemList/ItemList";
-import { Box } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
+import "./itemListContainer.css";
 
 export const ItemListContainer = () => {
   return (
     <>
-      <Box mt={40} display="inline-block">
-        <Box fontSize="2xl" fontWeight="semibold"></Box>
-        <ItemList />
-      </Box>
+      <Flex
+        className="itemListContainer"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Box mt={40} h="100vh">
+          <ItemList />
+        </Box>
+      </Flex>
     </>
   );
 };

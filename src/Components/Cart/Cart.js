@@ -107,7 +107,7 @@ export const Cart = () => {
                       py={2}
                       px={10}
                       fontWeight="semibold"
-                      color="gray.100"
+                      color="gray.900"
                       alignItems={"center"}
                     >
                       <Image
@@ -186,14 +186,14 @@ export const Cart = () => {
             COMPRA TOTAL: ${totaPrice()}
           </chakra.h1>
           <ButtonGroup variant="solid" size="sm" spacing={3}>
-            <Link to="/">
+            <Link to="/checkout">
               <Button
                 size="sm"
                 variant="solid"
                 leftIcon={<Icon as={AiOutlineShopping} />}
-                colorScheme="gray"
+                colorScheme="red"
               >
-                Home
+                Checkout
               </Button>
             </Link>
 

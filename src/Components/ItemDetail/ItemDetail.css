@@ -1,8 +1,6 @@
 .item_detail {
-  max-width: 100%;
-  background-color: #f3f3f3;
   display: flex;
-  border-radius: 15px;
+  justify-content: center;
 }
 
 img {

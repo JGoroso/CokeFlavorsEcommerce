@@ -16,7 +16,7 @@ export const ItemList = () => {
       : query(
           collection(database, "products"),
           where("category", "==", categoryId)
-        );
+        )
     getDocs(filterCategory).then((response) => {
       const productsFromDocs = response.docs.map((prod) => {
         const data = prod.data();
@@ -39,7 +39,7 @@ export const ItemList = () => {
               thumbnail={product.thumbnail}
               stock={product.stock}
             />
-          );
+          )
         })
       ) : (
         <h2>Cargando...</h2>

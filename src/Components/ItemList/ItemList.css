@@ -1,8 +1,8 @@
 .Itemlist {
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 30px;
-  padding: 0px 5px;
+  gap: 30px;
 }
 
 @media (max-width: 760px) {
