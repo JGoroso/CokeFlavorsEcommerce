@@ -11,7 +11,7 @@ export const ItemListContainer = () => {
         alignItems="center"
         justifyContent="center"
       >
-        <Box mt={40} h="100vh">
+        <Box mt={40}>
           <ItemList />
         </Box>
       </Flex>

@@ -37,19 +37,19 @@ export const ItemDetail = ({
             display={"flex"}
             justifyContent={"center"}
             alignItems={"center"}
-            flexDirection={{ base: "column", lg: "row" }}
+            flexDirection={{ base: "column", lg: "row", md: "row" }}
             w={"full"}
           >
             <Box
               h={{
                 lg: "full",
               }}
-              w={{ base: "100%", lg: "40%" }}
+              w={{ base: "100%", lg: "40%", md: "40%" }}
             >
               <chakra.h2
                 fontSize={{
                   base: "4xl",
-                  md: "9xl",
+                  md: "6xl",
                 }}
                 color="red.600"
                 _dark={{
@@ -57,7 +57,7 @@ export const ItemDetail = ({
                 }}
                 fontWeight="bold"
                 textTransform={"uppercase"}
-                textAlign={{ base: "center", lg: "right" }}
+                textAlign={{ base: "center", lg: "right", md: "right" }}
               >
                 {name}
               </chakra.h2>
@@ -77,7 +77,7 @@ export const ItemDetail = ({
                 base: "100%",
                 lg: "5xl",
               }}
-              w={{ base: "100%", lg: "40%" }}
+              w={{ base: "100%", lg: "40%", md: "40%" }}
             >
               <chakra.p
                 mt={4}

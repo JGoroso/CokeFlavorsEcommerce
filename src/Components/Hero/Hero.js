@@ -6,7 +6,7 @@ export const Hero = () => {
     <>
       <Box
         display={{ base: "flex" }}
-        flexDir={{ base: "column", lg: "row" }}
+        flexDir={{ base: "column", md: "row", lg: "row" }}
         overflow="hidden"
         className="hero"
       >
@@ -20,13 +20,12 @@ export const Hero = () => {
             xl: 32,
           }}
           border="solid 1px transparent"
-          w={{ lg: "40%", base: "100%" }}
+          w={{ lg: "40%", base: "100%", md: "40%" }}
           mt={40}
-          ml={{ md: 6 }}
         >
           <chakra.h1
             textAlign={{
-              md: "6xl",
+              md: "left",
               lg: "left",
             }}
             fontSize={{
@@ -47,7 +46,7 @@ export const Hero = () => {
           </chakra.h1>
           <chakra.p
             textAlign={{
-              md: "6xl",
+              md: "left",
               lg: "left",
             }}
             mt={{
@@ -58,7 +57,7 @@ export const Hero = () => {
             fontSize={{
               base: "1xl",
               sm: "2xl",
-              md: "2xl",
+              md: "xl",
             }}
             maxW={{
               sm: "xl",
@@ -76,12 +75,9 @@ export const Hero = () => {
 
         <Box
           mt={{ lg: 40, md: 10 }}
-          bottom={{
-            lg: 0,
-          }}
           w={{
             lg: "20%",
-            md: "100%",
+            md: "40%",
           }}
           border="solid 1px transparent"
         >

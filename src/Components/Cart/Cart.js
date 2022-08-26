@@ -1,7 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
-import "./Cart.css";
+
 import { Link } from "react-router-dom";
 import {
   Flex,
@@ -34,21 +34,21 @@ export const Cart = () => {
             _dark={{
               bg: "#3e3e3e",
             }}
-            p={10}
-            margin="0 auto"
             alignItems="center"
             justifyContent="center"
+            flexDir={"column"}
             w={{
               base: "full",
               md: "full",
             }}
+            minH={"80vh"}
           >
             <Stack
               mt={40}
               direction={{
                 base: "column",
               }}
-              w="60%"
+              w={{ lg: "60%" }}
               shadow="lg"
             >
               <Flex
@@ -78,8 +78,6 @@ export const Cart = () => {
                     base: 2,
                     md: 10,
                   }}
-                  fontSize="md"
-                  fontWeight="hairline"
                 >
                   <span></span>
                   <chakra.span
@@ -180,35 +178,41 @@ export const Cart = () => {
                 })}
               </Flex>
             </Stack>
-          </Flex>
 
-          <chakra.h1 color="white" fontWeight="bold" fontSize="xl" pb={5}>
-            COMPRA TOTAL: ${totaPrice()}
-          </chakra.h1>
-          <ButtonGroup variant="solid" size="sm" spacing={3}>
-            <Link to="/checkout">
+            <chakra.h1
+              color="#232323"
+              fontWeight="bold"
+              fontSize="xl"
+              pb={5}
+              pt={5}
+            >
+              COMPRA TOTAL: ${totaPrice()}
+            </chakra.h1>
+            <ButtonGroup variant="solid" size="sm" spacing={3}>
+              <Link to="/checkout">
+                <Button
+                  size="sm"
+                  variant="solid"
+                  leftIcon={<Icon as={AiOutlineShopping} />}
+                  colorScheme="red"
+                >
+                  Checkout
+                </Button>
+              </Link>
+
               <Button
                 size="sm"
-                variant="solid"
+                variant="outline"
                 leftIcon={<Icon as={AiOutlineShopping} />}
                 colorScheme="red"
+                onClick={() => {
+                  clearCart();
+                }}
               >
-                Checkout
+                Vaciar Carrito
               </Button>
-            </Link>
-
-            <Button
-              size="sm"
-              variant="outline"
-              leftIcon={<Icon as={AiOutlineShopping} />}
-              colorScheme="red"
-              onClick={() => {
-                clearCart();
-              }}
-            >
-              Vaciar Carrito
-            </Button>
-          </ButtonGroup>
+            </ButtonGroup>
+          </Flex>
         </>
       ) : (
         <Box textAlign="center" py={10} px={6}>
@@ -239,7 +243,7 @@ export const Cart = () => {
             <span>Ups ... No hay coquitas agregadas! &nbsp;</span>
           </Heading>
 
-          <Text color={"gray.200"} fontSize={20}>
+          <Text color={"gray.400"} fontSize={20}>
             Puedes volver al home y elegir la que mas te guste
           </Text>
           <Link to="/">

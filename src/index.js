@@ -4,9 +4,16 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { Footer } from "./Components/Footer/Footer";
 
 const theme = extendTheme({
+  breakpoints: {
+    sm: "550px",
+    md: "768px",
+    lg: "1390px",
+    xl: "1440px",
+    "2xl": "2500px",
+  },
+
   styles: {
     global: () => ({
       body: {

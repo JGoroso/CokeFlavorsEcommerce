@@ -9,9 +9,9 @@
   justify-content: center;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
   .hero {
-    background-position-x: 40%;
+    background-position-x: 0%;
     display: flex;
   }
 }

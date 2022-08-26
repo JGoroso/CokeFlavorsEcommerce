@@ -2,4 +2,12 @@
 body {
   text-align: center;
   background-color: #fafafa;
+  min-height: calc(100vh-34px);
+}
+footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  background-color: #fafafa;
+  color: #232323;
 }
