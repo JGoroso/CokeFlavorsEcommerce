@@ -21,6 +21,7 @@ import {
 import { AiOutlineShopping } from "react-icons/ai";
 import { BsFillTrashFill } from "react-icons/bs";
 import { FaHeartBroken } from "react-icons/fa";
+import { TbBottle } from "react-icons/tb";
 
 export const Cart = () => {
   const bg3 = useColorModeValue("gray.100", "gray.700");
@@ -39,33 +40,35 @@ export const Cart = () => {
             flexDir={"column"}
             w={{
               base: "full",
-              md: "full",
+              sm: "full",
+              lg: "full",
             }}
             minH={"80vh"}
           >
             <Stack
               mt={40}
               direction={{
-                base: "column",
+                sm: "row",
               }}
-              w={{ lg: "60%" }}
+              w={{ base: "full", lg: "50%", lgg: "100%" }}
               shadow="lg"
             >
               <Flex
                 direction={{
-                  base: "row",
+                  base: "column",
                   md: "column",
                 }}
               >
                 <SimpleGrid
                   spacingY={3}
                   columns={{
-                    base: 1,
+                    base: 6,
                     md: 6,
                   }}
                   w={{
-                    base: 120,
                     md: "full",
+                    base: "full",
+                    lg: "full",
                   }}
                   textTransform="uppercase"
                   bg={bg3}
@@ -75,9 +78,10 @@ export const Cart = () => {
                     md: 4,
                   }}
                   px={{
-                    base: 2,
+                    base: 10,
                     md: 10,
                   }}
+                  fontSize={{ base: "9px", lg: "16" }}
                 >
                   <span></span>
                   <chakra.span
@@ -98,15 +102,16 @@ export const Cart = () => {
                       key={prod.id}
                       spacingY={3}
                       columns={{
-                        base: 1,
+                        base: 6,
                         md: 6,
                       }}
-                      w="full"
+                      w={{ base: "full", md: "full", lg: "full" }}
                       py={2}
                       px={10}
                       fontWeight="semibold"
                       color="gray.900"
                       alignItems={"center"}
+                      fontSize={{ base: "14px" }}
                     >
                       <Image
                         maxW={"32px"}
@@ -152,6 +157,7 @@ export const Cart = () => {
                           <Flex>
                             <Link to={`/detail/${prod.id}`}>
                               <Button
+                                display={{ base: "none", md: "flex" }}
                                 size="sm"
                                 variant="solid"
                                 leftIcon={<Icon as={AiOutlineShopping} />}
@@ -188,15 +194,19 @@ export const Cart = () => {
             >
               COMPRA TOTAL: ${totaPrice()}
             </chakra.h1>
-            <ButtonGroup variant="solid" size="sm" spacing={3}>
+            <ButtonGroup
+              flexDir={"column"}
+              justifyContent={"center"}
+              alignItems="center"
+            >
               <Link to="/checkout">
                 <Button
                   size="sm"
                   variant="solid"
-                  leftIcon={<Icon as={AiOutlineShopping} />}
+                  leftIcon={<Icon as={TbBottle} />}
                   colorScheme="red"
                 >
-                  Checkout
+                  Finalizar Compras
                 </Button>
               </Link>
 
@@ -205,6 +215,7 @@ export const Cart = () => {
                 variant="outline"
                 leftIcon={<Icon as={AiOutlineShopping} />}
                 colorScheme="red"
+                mt={5}
                 onClick={() => {
                   clearCart();
                 }}
