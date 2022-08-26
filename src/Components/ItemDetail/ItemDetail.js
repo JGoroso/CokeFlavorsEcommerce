@@ -37,14 +37,14 @@ export const ItemDetail = ({
             display={"flex"}
             justifyContent={"center"}
             alignItems={"center"}
+            flexDirection={{ base: "column", lg: "row" }}
             w={"full"}
           >
             <Box
               h={{
-                base: 80,
                 lg: "full",
               }}
-              w={"40%"}
+              w={{ base: "100%", lg: "40%" }}
             >
               <chakra.h2
                 fontSize={{
@@ -57,23 +57,27 @@ export const ItemDetail = ({
                 }}
                 fontWeight="bold"
                 textTransform={"uppercase"}
-                textAlign={"right"}
+                textAlign={{ base: "center", lg: "right" }}
               >
                 {name}
               </chakra.h2>
             </Box>
 
             <Box>
-              <Image height={530} objectFit={"cover"} src={thumbnail} />
+              <Image
+                height={{ base: "300", lg: "530" }}
+                objectFit={"cover"}
+                src={thumbnail}
+              />
             </Box>
             <Box
               py={12}
               px={6}
               maxW={{
-                base: "xl",
+                base: "100%",
                 lg: "5xl",
               }}
-              w={"40%"}
+              w={{ base: "100%", lg: "40%" }}
             >
               <chakra.p
                 mt={4}
@@ -81,8 +85,8 @@ export const ItemDetail = ({
                 _dark={{
                   color: "gray.600",
                 }}
-                textAlign={"left"}
-                fontSize={"2xl"}
+                textAlign={{ base: "center", lg: "left" }}
+                fontSize={{ base: "1xl", lg: "2xl" }}
                 fontWeight={"semibold"}
               >
                 {description}
@@ -90,14 +94,14 @@ export const ItemDetail = ({
 
               <chakra.h2
                 fontSize={{
-                  base: "3xl",
+                  base: "5xl",
                   md: "6xl",
                 }}
                 color="red.600"
                 _dark={{
                   color: "white",
                 }}
-                textAlign={"left"}
+                textAlign={{ base: "center", lg: "left" }}
                 fontWeight="bold"
               >
                 ${price}

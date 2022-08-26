@@ -10,7 +10,7 @@ img {
   margin: 0 auto;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 760px) {
   .item_detail {
     max-width: 100vw;
     display: flex;

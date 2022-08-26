@@ -4,9 +4,14 @@ import { Image, Box, chakra } from "@chakra-ui/react";
 export const Hero = () => {
   return (
     <>
-      <Box overflow="hidden" className="hero">
+      <Box
+        display={{ base: "flex" }}
+        flexDir={{ base: "column", lg: "row" }}
+        overflow="hidden"
+        className="hero"
+      >
         <Box
-          mt={40}
+          flexShrink="0"
           pb={{
             base: 10,
             sm: 16,
@@ -14,9 +19,10 @@ export const Hero = () => {
             lg: 28,
             xl: 32,
           }}
- 
           border="solid 1px transparent"
-          w={"40%"}
+          w={{ lg: "40%", base: "100%" }}
+          mt={40}
+          ml={{ md: 6 }}
         >
           <chakra.h1
             textAlign={{
@@ -24,7 +30,7 @@ export const Hero = () => {
               lg: "left",
             }}
             fontSize={{
-              base: "xl",
+              base: "5xl",
               sm: "7xl",
               md: "6xl",
               lg: "8xl",
@@ -50,6 +56,7 @@ export const Hero = () => {
               md: 2,
             }}
             fontSize={{
+              base: "1xl",
               sm: "2xl",
               md: "2xl",
             }}

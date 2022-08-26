@@ -11,6 +11,7 @@ import { CartContextProvider } from "./Context/CartContext";
 import { Cart } from "./Components/Cart/Cart";
 import { Checkout } from "./Components/Checkout/Checkout";
 import "./Components/NavBar/NavBar.css";
+import { Footer } from "./Components/Footer/Footer";
 
 function App() {
   return (
@@ -33,6 +34,8 @@ function App() {
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/*" element={<Error />} />
             </Routes>
+
+            <Footer />
           </BrowserRouter>
         </CartContextProvider>
       </div>

@@ -18,7 +18,7 @@ export const ItemCount = ({ initial = 1, stock, onAdd }) => {
 
   return (
     <>
-      <HStack display="flex">
+      <HStack display={{ base: "inline", lg: "flex" }} >
         <Button
           onClick={() => {
             if (qty > 1) addProduct(-1);
@@ -43,7 +43,7 @@ export const ItemCount = ({ initial = 1, stock, onAdd }) => {
         </Button>
         <Button
           className="Button"
-          mt={2}
+          marginTop={20}
           size={"lg"}
           onClick={() => onAdd(qty)}
           bg={useColorModeValue("red.500")}
