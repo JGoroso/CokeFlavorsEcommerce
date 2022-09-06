@@ -9,18 +9,18 @@ export const Hero = () => {
         flexDir={{ base: "column", md: "row", lg: "row" }}
         overflow="hidden"
         className="hero"
+        w={{ md: "100%" }}
       >
         <Box
-          flexShrink="0"
           pb={{
             base: 10,
             sm: 16,
-            md: 40,
+            md: 28,
             lg: 28,
             xl: 32,
           }}
           border="solid 1px transparent"
-          w={{ lg: "40%", base: "100%", md: "40%" }}
+          w={{ lg: "40%", base: "100%", md: "50%" }}
           mt={40}
         >
           <chakra.h1
@@ -32,7 +32,9 @@ export const Hero = () => {
               base: "5xl",
               sm: "7xl",
               md: "6xl",
-              lg: "8xl",
+              lg: "7xl",
+              xl: "8xl",
+              "2xl": "9xl"
             }}
             letterSpacing="tight"
             lineHeight="short"
@@ -58,6 +60,9 @@ export const Hero = () => {
               base: "1xl",
               sm: "2xl",
               md: "xl",
+              lg: "2xl",
+              xl: "4xl",
+              "2xl": "4xl"
             }}
             maxW={{
               sm: "xl",
@@ -69,25 +74,25 @@ export const Hero = () => {
             }}
             color="gray.200"
           >
-            Suponemos que no conoces todos los sabores, acá podes encontrarlos!
+            Quizas no las conozcas a todas... acá podes encontrarlas
           </chakra.p>
         </Box>
 
         <Box
           mt={{ lg: 40, md: 10 }}
           w={{
-            lg: "20%",
-            md: "40%",
+            lg: "28%",
+            md: "30%",
           }}
           border="solid 1px transparent"
         >
           <Image
             w={{
-              lg: "90%",
-              md: "40%",
+              lg: "100%",
+              md: "80%",
             }}
             fit="cover"
-            src="https://www.coca-colacompany.com/content/dam/journey/au/en/brand-detail/coca-cola/Large_product_shot_Coca-Cola_Vanilla_No_Sugar_updated.png"
+            src="https://us.coca-cola.com/content/dam/nagbrands/us/coke/en/dreamworld/pdp/coca-cola-dreamworld-can.png"
             alt=""
             loading="lazy"
           />

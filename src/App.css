@@ -5,9 +5,12 @@ body {
   min-height: calc(100vh-34px);
 }
 footer {
+  margin-top: 5%;
   position: relative;
   left: 0;
   bottom: 0;
-  background-color: #fafafa;
+
   color: #232323;
+  font-weight: 500;
+  font-size: 0.7em;
 }

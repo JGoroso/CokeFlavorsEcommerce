@@ -3,6 +3,7 @@ import { Flex, Box, chakra, Image, Button } from "@chakra-ui/react";
 import { ItemCount } from "../ItemCount/ItemCount";
 import { Link } from "react-router-dom";
 import "./ItemDetail.css";
+import { BsCartCheckFill } from "react-icons/bs";
 import { CartContext } from "../../Context/CartContext";
 
 export const ItemDetail = ({
@@ -50,6 +51,7 @@ export const ItemDetail = ({
                 fontSize={{
                   base: "4xl",
                   md: "6xl",
+                  lg: "9xl",
                 }}
                 color="red.600"
                 _dark={{
@@ -118,7 +120,14 @@ export const ItemDetail = ({
                 ) : (
                   <>
                     <Link to="/cart">
-                      <Button>Terminar compra</Button>
+                      <Button
+                        leftIcon={<BsCartCheckFill />}
+                        colorScheme="red"
+                        variant="outline"
+                        display={"flex"}
+                      >
+                        Terminar compra
+                      </Button>
                     </Link>
                   </>
                 )}

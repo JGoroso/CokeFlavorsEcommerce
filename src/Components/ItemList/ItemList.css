@@ -5,8 +5,32 @@
   gap: 30px;
 }
 
+.cokeloading {
+  height: 100vh;
+}
+
+#cokeloading {
+  animation: rotation 4s linear infinite;
+  -webkit-animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
 @media (max-width: 760px) {
   .Itemlist {
     grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1023px) {
+  .Itemlist {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

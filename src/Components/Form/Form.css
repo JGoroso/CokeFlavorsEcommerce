@@ -1,0 +1,30 @@
+.coca-logo {
+  width: 300px;
+  margin: 0 auto;
+  fill: none;
+}
+
+.coca-logo path {
+  stroke-dasharray: 0 200;
+  stroke-dashoffset: 100;
+  stroke-width: 1px;
+  stroke: red;
+  animation: dash 5s linear infinite;
+}
+
+@keyframes dash {
+  45%,
+  65% {
+    fill: transparent;
+    stroke: #fff;
+  }
+  50%,
+  60% {
+    stroke-dasharray: 523 200;
+    stroke: transparent;
+    fill: red;
+  }
+  100% {
+    stroke-dasharray: 0 200;
+  }
+}

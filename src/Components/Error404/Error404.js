@@ -15,14 +15,14 @@ export const Error = () => {
       >
         404
       </Heading>
-      <Text color={"gray.200"} mb={6}>
+      <Text color={"gray.500"} mb={6} mt={5}>
         ERROR! Estabas buscando una pepsi? Volve al home y comprate una coca.
       </Text>
 
       <Link to="/">
         {" "}
         <Button
-          colorScheme="teal"
+          colorScheme="red"
           bgGradient="linear(to-r, red.200, red.400, red.600)"
           color="white"
           variant="solid"

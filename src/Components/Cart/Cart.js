@@ -43,7 +43,7 @@ export const Cart = () => {
               sm: "full",
               lg: "full",
             }}
-            minH={"80vh"}
+            minH={"100vh"}
           >
             <Stack
               mt={40}

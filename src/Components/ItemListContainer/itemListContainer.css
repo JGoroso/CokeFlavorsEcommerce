@@ -1,8 +1,3 @@
-.itemListContainer {
-  width: 100vw;
-  min-height: 100vh;
-}
-
 .itemListContainer::before {
   content: "";
   background-image: url("https://logos-world.net/wp-content/uploads/2020/03/Coca-Cola-Logo-1987-2009.png");

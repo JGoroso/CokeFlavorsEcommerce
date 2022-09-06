@@ -25,22 +25,32 @@ import { Link } from "react-router-dom";
 import { Form } from "../Form/Form";
 
 export const Checkout = () => {
-  const { cart, totaPrice } = useContext(CartContext);
+  const { cart, totaPrice, clearCart } = useContext(CartContext);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [orderId, setOrderId] = useState();
+  const [nameClient, setNameClient] = useState();
   const [comprobant, setComprobant] = useState();
 
-  const createOrder = async (name, email, tel) => {
+  const createOrder = async (
+    name,
+    email,
+    tel,
+    direccion,
+    ciudad,
+    provincia,
+    obs
+  ) => {
     const order = {
       date: new Date(),
       client: {
         firstName: name,
         email: email,
         tel: tel,
-        // direccion: "",
-        // ciudad: "",
-        // provincia: ""
+        direccion: direccion,
+        ciudad: ciudad,
+        provincia: provincia,
+        observaciones: obs || "",
       },
       items: cart,
       total: totaPrice(),
@@ -65,7 +75,7 @@ export const Checkout = () => {
 
     // Creo una const donde se guardaran aquellos productos que esten fuera de stock
     const outStockProducts = [];
-    console.log(outStockProducts);
+
     docs.forEach((doc) => {
       //Obtenemos todos los datos del doc
       const dataDoc = doc.data();
@@ -76,7 +86,6 @@ export const Checkout = () => {
       const productOnCart = cart.find((prod) => prod.id === doc.id);
 
       const prodQuantity = productOnCart?.quantity;
-      console.log(prodQuantity);
       if (prodQuantity <= stockFromDb) {
         batch.update(doc.ref, { stock: stockFromDb - prodQuantity });
       } else {
@@ -88,9 +97,12 @@ export const Checkout = () => {
       await batch.commit();
       const orderCreate = collection(database, "orders");
       const orderAdd = await addDoc(orderCreate, order);
+      setNameClient(name);
       setOrderId(orderAdd.id);
+
       setComprobant(true);
       onOpen();
+      clearCart();
     } else {
       console.log("existen productos fuera de stock");
     }
@@ -106,7 +118,7 @@ export const Checkout = () => {
           <Modal isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />
             <ModalContent>
-              <ModalHeader>¡Gracias por tu compra!</ModalHeader>
+              <ModalHeader>¡Gracias por tu compra {nameClient}! </ModalHeader>
 
               <ModalBody>
                 Por favor guarda el siguiente comprobante de compra: {orderId}
