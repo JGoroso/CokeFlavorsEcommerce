@@ -23,7 +23,7 @@ export const ItemList = () => {
         .finally(() => {
           setIsLoading(false);
         });
-    }, 500);
+    }, 200);
   }, [categoryId]);
 
   if (isLoading) {
