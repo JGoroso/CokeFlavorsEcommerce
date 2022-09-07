@@ -16,7 +16,7 @@ Coke Flavors es un Ecommerce que permite al usuario conocer/comprar los distinto
 [React-Router-Dom](https://reactrouter.com/web/guides/quick-start).\
 [Firebase](https://firebase.google.com/).\
 [ChakraUI](https://chakra-ui.com/).\
-[React Icons](https://react-icons.github.io/react-icons/).\
+[React Icons](https://react-icons.github.io/react-icons/).
 
 ## Installation
 
