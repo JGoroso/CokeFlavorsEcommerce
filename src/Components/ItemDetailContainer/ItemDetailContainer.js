@@ -1,27 +1,33 @@
-import React, { useEffect, useState } from "react";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
 import { Box } from "@chakra-ui/react";
 import "./ItemDetailContainer.css";
 import { getProduct } from "../../Services/Firebase/firestore";
+import { useAsync } from "../../hooks/useAsync";
 
 export const ItemDetailContainer = () => {
-  const [product, setProduct] = useState();
   const { productId } = useParams();
-  useEffect(() => {
-    getProduct(productId)
-      .then((product) => {
-        setProduct(product);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [productId]);
+
+  const getProductsFirestore = () => getProduct(productId);
+
+  const { data, isLoading } = useAsync(getProductsFirestore, [productId]);
+
+  if (isLoading) {
+    return (
+      <div className="cokeloading" id="AllProducts">
+        <img
+          id="cokeloading"
+          src="https://i.ibb.co/x26B0c3/coke.png"
+          alt="cokeloading"
+        />
+      </div>
+    );
+  }
 
   return (
     <>
       <Box w={"100vw"} className="itemDetailContainer">
-        <ItemDetail {...product} />
+        <ItemDetail {...data} />
       </Box>
     </>
   );

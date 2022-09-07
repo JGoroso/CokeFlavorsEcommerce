@@ -1,43 +1,34 @@
-import React, { useEffect, useState } from "react";
 import { Item } from "../Item/Item";
 import "./ItemList.css";
 import { useParams } from "react-router-dom";
 import { getProducts } from "../../Services/Firebase/firestore";
+import { useAsync } from "../../hooks/useAsync";
 
 export const ItemList = () => {
-  const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
   const { categoryId } = useParams();
+  const getProductsFirestore = () => getProducts(categoryId);
 
-  useEffect(() => {
-    setIsLoading(true);
-    setTimeout(() => {
-      getProducts(categoryId)
-        .then((products) => {
-          setProducts(products);
-        })
-        .catch((error) => {
-          console.log(error);
-        })
-        .finally(() => {
-          setIsLoading(false);
-        });
-    }, 200);
-  }, [categoryId]);
+  const { data, isLoading } = useAsync(getProductsFirestore, [
+    categoryId,
+  ]);
+
 
   if (isLoading) {
     return (
       <div className="cokeloading" id="AllProducts">
-        <img id="cokeloading" src="https://i.ibb.co/x26B0c3/coke.png" alt="cokeloading" />
+        <img
+          id="cokeloading"
+          src="https://i.ibb.co/x26B0c3/coke.png"
+          alt="cokeloading"
+        />
       </div>
     );
   }
-  
+
   return (
     <div className="Itemlist" id="AllProducts">
-      {products.length
-        ? products.map((product) => {
+      {data.length
+        ? data.map((product) => {
             return (
               <Item
                 key={product.id}

@@ -6,7 +6,10 @@
   align-items: center;
   justify-content: center;
 }
-
+.cokeloading {
+  height: 100vh;
+  padding-top: 20%;
+}
 .itemDetailContainer::before {
   content: "";
   background-image: url("https://logos-world.net/wp-content/uploads/2020/03/Coca-Cola-Logo-1987-2009.png");
