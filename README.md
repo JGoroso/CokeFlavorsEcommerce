@@ -1,4 +1,4 @@
-# Coke Flavors Ecommerce
+# Coke Flavors Ecommerce 🥤
 
 ## Acerca del proyecto
 Coke Flavors es un Ecommerce que permite al usuario conocer/comprar los distintos sabores de Coca-Cola que existen.
@@ -13,10 +13,10 @@ Coke Flavors es un Ecommerce que permite al usuario conocer/comprar los distinto
 
 
 ## Dependencias
-[React-Router-Dom](https://reactrouter.com/web/guides/quick-start).\
-[Firebase](https://firebase.google.com/).\
-[ChakraUI](https://chakra-ui.com/).\
-[React Icons](https://react-icons.github.io/react-icons/).
+[React-Router-Dom](https://reactrouter.com/web/guides/quick-start)\
+[Firebase](https://firebase.google.com/)\
+[ChakraUI](https://chakra-ui.com/)\
+[React Icons](https://react-icons.github.io/react-icons/)
 
 ## Instalacion
 
@@ -27,6 +27,9 @@ cd CokeFlavorsEcommerce
 npm install ""
 npm start
 ```
+
+## Hooks Utilizados.
+useParams useState useContext useEffect CustomHooks
 
 ## ¿Que puedo hacer?
 - El usuario podra ver todos los productos disponibles. 
