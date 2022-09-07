@@ -24,7 +24,7 @@ Este proyecto requiere [Node.js](https://nodejs.org/) v10+ para funcionar.
 ```sh}
 Clonar este repositorio 
 cd CokeFlavorsEcommerce
-npm install ""
+npm i
 npm start
 ```
 
